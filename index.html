@@ -5,8 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learn Vue.js</title>
 </head>
-<script src="js/vue.js"></script>
+
 <body>
-    
+
+    <div id ='rabee-app'>
+        <h1>Hello IN Vue.js</h1>
+        <p>Welcome {{'MR '+ name}}</p>
+    </div>
+
+
+    <script src="js/vue.js"></script>
+    <script>
+    var vm = new Vue({
+    el: '#rabee-app',
+    data: {
+        name :'Rabee'
+            
+        }
+      
+    })
+    </script>
 </body>
 </html>
