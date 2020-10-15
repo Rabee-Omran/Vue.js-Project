@@ -10,18 +10,19 @@
 
     <div id ='rabee-app'>
         <h1>Hello IN Vue.js</h1>
-        <p >Welcome {{ name}}</p> 
-     
-        <!-- <img src="img/1.jpg" width="150px" alt="" > -->
-        <a v-bind:href="imageUrl">google</a>
-        <img :src="imageSrc" width="150px" alt="" > <!--:src  or v-bind:src -->
-        <p>Counter is {{counter}}</p>
+        <p >Welcome {{ source}}</p> 
+        
+        <form action="">
+            <input type="text" :value="source" placeholder="Using v-bind">  <!--One Way Binding-->
+            <input type="text" v-model:value="source" placeholder="Using v-model">   <!--Two Way Binding-->
 
 
-        <button @click="counter++">click</button>
-        <button @click.right="counter++">click</button> <!--right mouse click-->
-   
-    </div>
+        </form>
+        <h1>Your name is {{source}}</h1>
+
+
+
+</div>
 
 
     <script src="js/vue.js"></script>
@@ -29,10 +30,8 @@
     var vm = new Vue({
     el: '#rabee-app',
     data: {
-        name :'Rabee',
-        imageSrc:'img/1.jpg',
-        imageUrl:'http://www.google.com',
-       counter:0,
+        source :'Rabee',
+      
     },
         methods: {
          
