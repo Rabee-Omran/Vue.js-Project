@@ -10,12 +10,9 @@
 
     <div id ='rabee-app'>
         <h1>Hello IN Vue.js</h1>
-        <p v-if="name">Welcome {{'Mr '+ name}}</p>
-        <p v-else>Welcome</p>
-
-        <p v-if="age>30">you are old</p>
-        <p v-else-if="age==30">young</p>
-        <p v-else>boy</p>
+        <p v-once>Welcome {{'Mr '+ name}}</p> <!--not update (static)-->
+     
+        <p v-show="age">Welcome {{ age}}</p> <!-- toggle display -->
       
    
     </div>
