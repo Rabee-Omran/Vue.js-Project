@@ -10,22 +10,12 @@
 
     <div id ='rabee-app'>
         <h1>Hello IN Vue.js</h1>
-        <p>Welcome {{'Mr '+ name}}</p>
-        <p v-text="name ? 'your name is set':'yor name is not set'"></p>
-        <p v-html="title"></p>
-        <ul>
-            <li v-for="skill in skills">{{skill}}</li>
-        </ul>
+        <p v-if="name">Welcome {{'Mr '+ name}}</p>
+        <p v-else>Welcome</p>
 
-        <ul>
-            <li v-for="(skill, index) in skills">{{skill}} => {{index}}</li>
-        </ul>
-
-        <ul>
-            <li v-for="test in completedTests">
-                {{test.testName}} => {{test.testResult}}
-            </li>
-        </ul>
+        <p v-if="age>30">you are old</p>
+        <p v-else-if="age==30">young</p>
+        <p v-else>boy</p>
       
    
     </div>
@@ -37,24 +27,8 @@
     el: '#rabee-app',
     data: {
         name :'Rabee',
-        title:'<b class ="rank">hi</b>',
-        skills:['PYTHON','DJANGO'],
-        completedTests:[
-           { 
-            testName :'First Test',
-            testResult:'80%'
-           },
-           { 
-            testName :'First Test 2',
-            testResult:'82%'
-           },
-           { 
-            testName :'First Test 3',
-            testResult:'85%'
-           }
-        ]
-            
-        },
+        age:41,
+    },
         methods: {
          
         },
