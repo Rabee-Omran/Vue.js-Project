@@ -10,16 +10,16 @@
 
     <div id ='rabee-app'>
         <h1>Hello IN Vue.js</h1>
-        <p >Welcome {{ source}}</p> 
+        <p >Welcome {{ name}}</p> 
       
         <form action="">
-            <input type="text" :value="source" placeholder="Using v-bind">  <!--One Way Binding-->
-            <input type="text" v-model:value="source" placeholder="Using v-model">   <!--Two Way Binding-->
+            <input type="text" :value="name" placeholder="Using v-bind">  <!--One Way Binding-->
+            <input type="text" v-model:value="name" placeholder="Using v-model">   <!--Two Way Binding-->
 
         </form>
-        <h1>Your name is {{source}}</h1>
+        <h1>Your name is {{name}}</h1>
 <hr>
-        <app-count></app-count>
+        <app-count :source="source" :url='url'></app-count>
         <app-count></app-count>
         <app-count></app-count>
         <app-count></app-count>
@@ -27,6 +27,8 @@
 
 <script src="js/vue.js"></script>
 <script>
+
+
 Vue.component('app-count', {
     data: function () {
             return {
@@ -34,12 +36,17 @@ Vue.component('app-count', {
                 count:0
             }
     },
-    template :'<p @click="count++" >Hello {{name}} you click this parghraph {{count}} times</p> ',
+    props:['source','url'],
+    template :'<p @click="count++" >Hello {{name}} you click this parghraph {{count}} times and source is {{source}} and url {{url}}</p> ',
 })
+
+
 var vm = new Vue({
     el: '#rabee-app',
     data: {
-        source: 'Rabee',
+        name: 'Rabee',
+        source:'rr2020',
+        url:'https://www.google.com'
 
     },
     methods: {
