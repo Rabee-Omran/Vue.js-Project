@@ -16,6 +16,12 @@
         <p>you are {{is_good ?'Good' :'Not Good'}}</p>
         <p>your first test Result {{completedTests[0]['testResult']}}</p>
         <p>your second test Result {{completedTests[1].testResult}}</p>
+        <p> {{saySomething()}}</p>
+        <p> {{sayMyname()}}</p>
+        <p> {{yourAgeInDays()}}</p>
+        <!-- <p> {{date}}</p>
+        <button @click="showNewDate">Show new Date</button> -->
+   
     </div>
 
 
@@ -26,6 +32,7 @@
     data: {
         name :'Rabee',
         age:21,
+        // date:'Today',
         skills:['PYTHON','DJANGO'],
         is_good:true,
         completedTests:[
@@ -43,7 +50,22 @@
            }
         ]
             
-        }
+        },
+        methods: {
+            saySomething:function(){
+                return 'hello from vue.js methods';
+            },
+            sayMyname:function(){
+                return this.name;
+            },
+            yourAgeInDays:function(){
+                return 'your age in days is :'+this.age*365;
+            },
+            // showNewDate:function(){
+            //   this.date = Date();
+            //   return this.date;
+            // },
+        },
       
     })
     </script>
