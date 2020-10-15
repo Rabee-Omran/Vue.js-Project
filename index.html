@@ -10,10 +10,16 @@
 
     <div id ='rabee-app'>
         <h1>Hello IN Vue.js</h1>
-        <p v-once>Welcome {{'Mr '+ name}}</p> <!--not update (static)-->
+        <p >Welcome {{ name}}</p> 
      
-        <p v-show="age">Welcome {{ age}}</p> <!-- toggle display -->
-      
+        <!-- <img src="img/1.jpg" width="150px" alt="" > -->
+        <a v-bind:href="imageUrl">google</a>
+        <img :src="imageSrc" width="150px" alt="" > <!--:src  or v-bind:src -->
+        <p>Counter is {{counter}}</p>
+
+
+        <button @click="counter++">click</button>
+        <button @click.right="counter++">click</button> <!--right mouse click-->
    
     </div>
 
@@ -24,7 +30,9 @@
     el: '#rabee-app',
     data: {
         name :'Rabee',
-        age:41,
+        imageSrc:'img/1.jpg',
+        imageUrl:'http://www.google.com',
+       counter:0,
     },
         methods: {
          
