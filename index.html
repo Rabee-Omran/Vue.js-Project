@@ -11,6 +11,11 @@
     <div id ='rabee-app'>
         <h1>Hello IN Vue.js</h1>
         <p>Welcome {{'MR '+ name}}</p>
+        <p>age : {{age + ' years'}}</p>
+        <p>first skills {{skills[0]}}</p>
+        <p>you are {{is_good ?'Good' :'Not Good'}}</p>
+        <p>your first test Result {{completedTests[0]['testResult']}}</p>
+        <p>your second test Result {{completedTests[1].testResult}}</p>
     </div>
 
 
@@ -19,7 +24,24 @@
     var vm = new Vue({
     el: '#rabee-app',
     data: {
-        name :'Rabee'
+        name :'Rabee',
+        age:21,
+        skills:['PYTHON','DJANGO'],
+        is_good:true,
+        completedTests:[
+           { 
+            testName :'First Test',
+            testResult:'80%'
+           },
+           { 
+            testName :'First Test 2',
+            testResult:'82%'
+           },
+           { 
+            testName :'First Test 3',
+            testResult:'85%'
+           }
+        ]
             
         }
       
