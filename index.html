@@ -11,33 +11,42 @@
     <div id ='rabee-app'>
         <h1>Hello IN Vue.js</h1>
         <p >Welcome {{ source}}</p> 
-        
+      
         <form action="">
             <input type="text" :value="source" placeholder="Using v-bind">  <!--One Way Binding-->
             <input type="text" v-model:value="source" placeholder="Using v-model">   <!--Two Way Binding-->
 
-
         </form>
         <h1>Your name is {{source}}</h1>
-
-
-
+<hr>
+        <app-count></app-count>
+        <app-count></app-count>
+        <app-count></app-count>
+        <app-count></app-count>
 </div>
 
-
-    <script src="js/vue.js"></script>
-    <script>
-    var vm = new Vue({
+<script src="js/vue.js"></script>
+<script>
+Vue.component('app-count', {
+    data: function () {
+            return {
+                name:'ahmad',
+                count:0
+            }
+    },
+    template :'<p @click="count++" >Hello {{name}} you click this parghraph {{count}} times</p> ',
+})
+var vm = new Vue({
     el: '#rabee-app',
     data: {
-        source :'Rabee',
-      
+        source: 'Rabee',
+
     },
-        methods: {
-         
-        },
-      
-    })
-    </script>
+    methods: {
+
+    }, 
+
+})
+</script>
 </body>
 </html>
