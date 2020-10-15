@@ -10,17 +10,10 @@
 
     <div id ='rabee-app'>
         <h1>Hello IN Vue.js</h1>
-        <p>Welcome {{'MR '+ name}}</p>
-        <p>age : {{age + ' years'}}</p>
-        <p>first skills {{skills[0]}}</p>
-        <p>you are {{is_good ?'Good' :'Not Good'}}</p>
-        <p>your first test Result {{completedTests[0]['testResult']}}</p>
-        <p>your second test Result {{completedTests[1].testResult}}</p>
-        <p> {{saySomething()}}</p>
-        <p> {{sayMyname()}}</p>
-        <p> {{yourAgeInDays()}}</p>
-        <!-- <p> {{date}}</p>
-        <button @click="showNewDate">Show new Date</button> -->
+        <p>Welcome {{'Mr '+ name}}</p>
+        <p v-text="name ? 'your name is set':'yor name is not set'"></p>
+        <p v-html="title"></p>
+      
    
     </div>
 
@@ -31,40 +24,12 @@
     el: '#rabee-app',
     data: {
         name :'Rabee',
-        age:21,
-        // date:'Today',
-        skills:['PYTHON','DJANGO'],
-        is_good:true,
-        completedTests:[
-           { 
-            testName :'First Test',
-            testResult:'80%'
-           },
-           { 
-            testName :'First Test 2',
-            testResult:'82%'
-           },
-           { 
-            testName :'First Test 3',
-            testResult:'85%'
-           }
-        ]
+        title:'<b class ="rank">hi</b>'
+      
             
         },
         methods: {
-            saySomething:function(){
-                return 'hello from vue.js methods';
-            },
-            sayMyname:function(){
-                return this.name;
-            },
-            yourAgeInDays:function(){
-                return 'your age in days is :'+this.age*365;
-            },
-            // showNewDate:function(){
-            //   this.date = Date();
-            //   return this.date;
-            // },
+         
         },
       
     })
