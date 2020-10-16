@@ -10,8 +10,17 @@
 
     <div id ='rabee-app'>
         <h1>Hello IN Vue.js</h1>
-        <p >Welcome {{ name}}</p> 
-        <h1>Your age is {{calcAge}}</h1>
+      
+
+        <label>Search for Programming Languages </label>
+            <input type="text" v-model="findLanguage">
+            <ul>
+                <li v-for= 'lang in filterLang'>
+                    {{lang}}
+                  
+                </li>
+            </ul>
+       
 <hr>
         
         
@@ -27,18 +36,25 @@ var vm = new Vue({
     el: '#rabee-app',
     data: {
         name: 'Rabee',
-        age:20,
-       
+        findLanguage:'',
+        languages :[
+            'MySql',
+            'Java',
+            'C#'
+        ]
 
     },
     methods: {
 
     }, 
     computed: {
-        calcAge:function()
+        filterLang:function()
 {   
+    var filtering= new RegExp(this.findLanguage,'i');
     console.log('Run')
-    return this.age*2;
+    return this.languages.filter(function(el){
+        return el.match(filtering)
+    });
 }
     },
 
