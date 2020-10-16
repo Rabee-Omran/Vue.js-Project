@@ -11,66 +11,36 @@
     <div id ='rabee-app'>
         <h1>Hello IN Vue.js</h1>
         <p >Welcome {{ name}}</p> 
-      
-        <form action="">
-            <input type="text" :value="name" placeholder="Using v-bind">  <!--One Way Binding-->
-            <input type="text" v-model:value="name" placeholder="Using v-model">   <!--Two Way Binding-->
-
-        </form>
-        <h1>Your name is {{name}}</h1>
+        <h1>Your age is {{calcAge}}</h1>
 <hr>
-        <app-count :source="source" :url='url'></app-count>
-        <app-count-private></app-count-private>
+        
         
 </div>
 
 <script src="js/vue.js"></script>
 <script> 
 
-var AppArticleItem = {
-    data: function () {
-            return {
-                name:'rabee',
-                count:0
-            }
-    },
-
-
-    props:[],
-    template :'<p >Hello {{name}} </p> ',
-}
-
-var AppArticle = {
-    data: function () {
-            return {
-                name:'ahmad',
-                count:0
-            }
-    },
-    props:['source','url'],
-    template :'<p @click="count++" >Hello {{name}} you click this parghraph {{count}} times and source is {{source}} and url {{url}}</p> ',
-}
-
-// Vue.component('app-count', ) //global
-
-// Vue.component('app-count-private', )
 
 
 var vm = new Vue({
-    components:{
-        'app-count':AppArticle, //local
-        'app-count-private':AppArticleItem //local
-    },
+   
     el: '#rabee-app',
     data: {
         name: 'Rabee',
-        source:'rr2020',
-        url:'https://www.google.com'
+        age:20,
+       
 
     },
     methods: {
 
     }, 
+    computed: {
+        calcAge:function()
+{   
+    console.log('Run')
+    return this.age*2;
+}
+    },
 
 })
 </script>
