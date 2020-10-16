@@ -12,14 +12,13 @@
         <h1>Hello IN Vue.js</h1>
       
 
-        <label>Search for Programming Languages </label>
-            <input type="text" v-model="findLanguage">
-            <ul>
-                <li v-for= 'lang in filterLang'>
-                    {{lang}}
-                  
-                </li>
-            </ul>
+        
+        <label>sy</label>
+            <input type="text" v-model="sy">
+           
+
+        <label>$</label>
+        <input type="text" v-model="usa">
        
 <hr>
         
@@ -36,26 +35,23 @@ var vm = new Vue({
     el: '#rabee-app',
     data: {
         name: 'Rabee',
-        findLanguage:'',
-        languages :[
-            'MySql',
-            'Java',
-            'C#'
-        ]
+        sy:0,
+        usa:0
 
     },
     methods: {
 
     }, 
     computed: {
-        filterLang:function()
-{   
-    var filtering= new RegExp(this.findLanguage,'i');
-    console.log('Run')
-    return this.languages.filter(function(el){
-        return el.match(filtering)
-    });
-}
+        
+    },
+    watch: {
+        sy:function(v){
+            this.usa = v/1000;
+        },
+        usa:function(v){
+            this.sy = v*1000;
+        }
     },
 
 })
