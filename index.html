@@ -20,16 +20,27 @@
         <h1>Your name is {{name}}</h1>
 <hr>
         <app-count :source="source" :url='url'></app-count>
-        <app-count></app-count>
-        <app-count></app-count>
-        <app-count></app-count>
+        <app-count-private></app-count-private>
+        
 </div>
 
 <script src="js/vue.js"></script>
-<script>
+<script> 
+
+var AppArticleItem = {
+    data: function () {
+            return {
+                name:'rabee',
+                count:0
+            }
+    },
 
 
-Vue.component('app-count', {
+    props:[],
+    template :'<p >Hello {{name}} </p> ',
+}
+
+var AppArticle = {
     data: function () {
             return {
                 name:'ahmad',
@@ -38,10 +49,18 @@ Vue.component('app-count', {
     },
     props:['source','url'],
     template :'<p @click="count++" >Hello {{name}} you click this parghraph {{count}} times and source is {{source}} and url {{url}}</p> ',
-})
+}
+
+// Vue.component('app-count', ) //global
+
+// Vue.component('app-count-private', )
 
 
 var vm = new Vue({
+    components:{
+        'app-count':AppArticle, //local
+        'app-count-private':AppArticleItem //local
+    },
     el: '#rabee-app',
     data: {
         name: 'Rabee',
